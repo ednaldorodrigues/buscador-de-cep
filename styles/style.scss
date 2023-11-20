@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$primary-color: #D4A373;
+$second-color: #015BA0;
+$third-color: #EEE;
+$border-radius: 0.25rem;
+@mixin estilo-paragrafos ($background-color) {
+    background: $background-color;
+    margin-bottom: 1.4rem;
+    border-radius: $border-radius;
+    padding: .8rem;
+    text-align: center;
+    font-size: 1.3rem;
+    color: white;
+    font-weight: bold;
+}
+
+body {
+    background: #DAD7CD;
+    height: 100vh;
+    max-width: 62rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#form {
+    background: $primary-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    border-radius: $border-radius;
+    h1 {
+        color: $second-color;
+        margin-bottom: 1rem;
+    }
+    input {
+        border: 3px solid transparent;
+        display: block;
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.8rem;
+        margin-bottom: .7rem;
+        border-radius: $border-radius;
+        background: $third-color;
+        transition: .2s;
+        &:hover,
+        &:focus {
+            outline: none;
+            background: white;
+            box-shadow: 0 0 0 3px $second-color;
+        }
+    }
+
+    input.active {
+         border: 3px solid #be0606;
+         transition: none;
+         &:hover,
+         &:focus {
+            outline: none;
+            background: white;
+            box-shadow: none;
+         }
+    }
+
+    button {
+        font-size: 1rem;
+        cursor: pointer;
+        border: none;
+        border-radius: $border-radius;
+        padding: .8rem 1.2rem;
+        background: $second-color;
+        min-width: 8rem;
+        transition: .2s;
+        color: white;
+        font-weight: bold;
+        &:hover,
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #00A5D0, 0 0 0 3px;
+        }
+    }
+}
+
+#infos {
+    width: 90%;
+
+    p {
+        @include estilo-paragrafos($second-color);
+    }
+}
+
+#erro {
+    width: 90%;
+
+    p {
+        @include estilo-paragrafos(#be0606);
+    }
+}
